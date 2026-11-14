@@ -18,19 +18,15 @@ while not finished:
 import requests
 
 TAGINFO = "https://taginfo.openstreetmap.org/api/4"
-HEADERS = {"User-Agent": "interest-ranker/1.0 (you@example.com)"}
+HEADERS = {"User-Agent": "interest-ranker/1.0 (Raymond.xiannie@gmail.com)"}
 
 def suggest_tags(interest, limit=30):
     r = requests.get(
         f"{TAGINFO}/search/by_keyword",
-        params={"query": interest, "page": 1, "rp": limit},  # no sortname/sortorder
+        params={"query": interest, "page": 1, "rp": limit},  
         headers=HEADERS,
         timeout=10,
     )
-    if not r.ok:
-        print("Status:", r.status_code)
-        print("Body:", r.text[:500])   # Taginfo usually explains the error here
-        r.raise_for_status()
     return r.json()["data"]
 
 for interest in responses: 
