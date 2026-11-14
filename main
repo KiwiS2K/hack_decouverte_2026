@@ -1,8 +1,8 @@
 from places import find_places
 
-resp = input('Enter keywords to search for (e.g. "ramen", "anime store", "museum"): ').strip()
-while not resp:
-    resp = input('Please enter at least one keyword: ').strip()
+interest = ['anime','food','gaming','sports','alcohol','museum','culture','art']
+resp = input(f"Interest ({', '.join(interest)}): ").strip().lower()
+
 city = input('City or area (leave blank for none): ').strip() or None
 
 for p in find_places(resp, city):
