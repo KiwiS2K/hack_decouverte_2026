@@ -15,6 +15,7 @@ while not finished:
   responses.append(resp)
   finished = int(input("Press 0 if you wish to add more items. Else press 1. " ))
 
+
 import requests
 
 TAGINFO = "https://taginfo.openstreetmap.org/api/4"
@@ -33,6 +34,9 @@ def suggest_tags(interest, limit=30):
         r.raise_for_status()
     return r.json()["data"]
 
+for interest in responses: un hashtag this to get the top 3 tags for each interest
+  rows = suggest_tags(interest)
+  print(f"{interest}: {rows[:3]}") 
 #for interest in responses: un hashtag this to get the top 3 tags for each interest
     #rows = suggest_tags(interest)
   #  print(f"{interest}: {rows[:3]}") 
