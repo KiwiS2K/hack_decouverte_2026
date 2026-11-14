@@ -1,12 +1,9 @@
-interest = ['anime','food','gaming','sports','alcohol','museum','culture','art']
-resp = interest[int(input('''Please respond with the key associated with the desired category:
-1. anime
-2. food
-3. gaming
-4. sports
-5. alcohol
-6. museum
-7. culture
-8. art
-response: ''')) - 1]
-print(resp)
+from places import find_places
+
+resp = input('Enter keywords to search for (e.g. "ramen", "anime store", "museum"): ').strip()
+while not resp:
+    resp = input('Please enter at least one keyword: ').strip()
+city = input('City or area (leave blank for none): ').strip() or None
+
+for p in find_places(resp, city):
+    print(f"{p['name']} ({p['rating']}) - {p['address']}\n  {p['maps_url']}")
