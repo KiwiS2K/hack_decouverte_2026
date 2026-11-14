@@ -1,12 +1,16 @@
 interest = ['anime','food','gaming','sports','alcohol','museum','culture','art']
-resp = interest[int(input('''Please respond with the key associated with the desired category:
-1. anime
-2. food
-3. gaming
-4. sports
-5. alcohol
-6. museum
-7. culture
-8. art
-response: ''')) - 1]
-print(resp)
+finished = False
+responses = []
+while not finished:
+  resp = interest[int(input('''Please respond with the key associated with the desired category:
+  1. anime
+  2. food
+  3. gaming
+  4. sports
+  5. alcohol
+  6. museum
+  7. culture
+  8. art
+  response: ''')) - 1]
+  locations.append(resp)
+  finished = int(input("Press 0 if you wish to add more items. Else press 1. " ))
