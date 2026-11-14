@@ -14,3 +14,26 @@ while not finished:
   response: ''')) - 1]
   responses.append(resp)
   finished = int(input("Press 0 if you wish to add more items. Else press 1. " ))
+
+
+import requests
+
+TAGINFO = "https://taginfo.openstreetmap.org/api/4"
+HEADERS = {"User-Agent": "interest-ranker/1.0 (you@example.com)"}
+
+def suggest_tags(interest, limit=30):
+    r = requests.get(
+        f"{TAGINFO}/search/by_keyword",
+        params={"query": interest, "page": 1, "rp": limit},  # no sortname/sortorder
+        headers=HEADERS,
+        timeout=10,
+    )
+    if not r.ok:
+        print("Status:", r.status_code)
+        print("Body:", r.text[:500])   # Taginfo usually explains the error here
+        r.raise_for_status()
+    return r.json()["data"]
+
+#for interest in responses: un hashtag this to get the top 3 tags for each interest
+    #rows = suggest_tags(interest)
+  #  print(f"{interest}: {rows[:3]}") 
