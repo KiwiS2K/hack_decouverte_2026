@@ -37,3 +37,6 @@ def suggest_tags(interest, limit=30):
 for interest in responses: un hashtag this to get the top 3 tags for each interest
   rows = suggest_tags(interest)
   print(f"{interest}: {rows[:3]}") 
+#for interest in responses: un hashtag this to get the top 3 tags for each interest
+    #rows = suggest_tags(interest)
+  #  print(f"{interest}: {rows[:3]}") 
