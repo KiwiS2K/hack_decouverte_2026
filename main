@@ -12,5 +12,5 @@ while not finished:
   7. culture
   8. art
   response: ''')) - 1]
-  locations.append(resp)
+  responses.append(resp)
   finished = int(input("Press 0 if you wish to add more items. Else press 1. " ))
